@@ -1,4 +1,4 @@
-
+import os
 # representing the token codes & token types 
 LETTER = 0   
 DIGIT = 1
@@ -110,6 +110,7 @@ def lex():
 
     elif charClass == UNKNOWN: # if the class of the character is unknown
         lookup(nextChar) # calls the lookup function for the character 
+        getChar()
 
     elif charClass == EOF: # if the character class is EOF
         nextToken = EOF # sets the token type as EOF
@@ -122,7 +123,7 @@ def lex():
 def main(): # The main function
     global in_fp, line, lineIndex # identify the in_fp, line and lineIndex as global variables
     try: # try is used to handle the errors or exceptions using the except 
-        with open("front.in", "r") as in_fp: # open the file front.in
+        with open("assignment cs/front.in", "r") as in_fp: # open the file front.in
             for line in in_fp: # iterate in each line in the file
                 line = line.strip() # removes the white space character in the line
                 lineIndex = 0 # sets the line index to 0
